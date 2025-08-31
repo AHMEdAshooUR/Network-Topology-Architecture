@@ -1,0 +1,83 @@
+
+Router Bani-1
+crypto isakmp policy 5
+ encr aes 256
+ hash sha512
+ authentication pre-share
+ group 5
+crypto isakmp key 6 CCNA address 11.1.0.2  
+
+access-list 2001 permit gre host 11.0.0.2 host 11.1.0.2
+
+crypto ipsec transform-set SECRET ah-sha512-hmac esp-aes 256 esp-sha512-hmac
+ mode tunnel
+crypto map GRE-IPSEC 5 ipsec-isakmp
+ set peer 11.1.0.2
+ set transform-set SECRET
+ match address 2001
+int s1/0
+ crypto map GRE-IPSEC
+
+
+
+Router Ciro-1
+
+crypto isakmp policy 5
+ encr aes 256
+ hash sha512
+ authentication pre-share
+ group 5
+crypto isakmp key 6 CCNA address 11.0.0.2  
+access-list 2001 permit gre host 11.1.0.2 host 11.0.0.2
+crypto ipsec transform-set SECRET ah-sha512-hmac esp-aes 256 esp-sha512-hmac
+ mode tunnel
+crypto map GRE-IPSEC 5 ipsec-isakmp
+ set peer 11.0.0.2
+ set transform-set SECRET
+ match address 2001
+int s1/0
+ crypto map GRE-IPSEC
+
+
+
+
+
+
+Router Bani-2
+crypto isakmp policy 10
+ encr aes 256
+ hash sha512
+ authentication pre-share
+ group 5
+crypto isakmp key 6 CCNA address 12.1.0.2  
+
+access-list 2002 permit gre host 12.0.0.2 host 12.1.0.2
+
+crypto ipsec transform-set SECRET ah-sha512-hmac esp-aes 256 esp-sha512-hmac
+
+crypto map GRE-IPSEC 10 ipsec-isakmp
+ set peer 12.1.0.2
+ set transform-set SECRET
+ match address 2002
+int s1/0
+ crypto map GRE-IPSEC
+
+
+
+Router Ciro-2
+
+crypto isakmp policy 10
+ encr aes 256
+ hash sha512
+ authentication pre-share
+ group 5
+crypto isakmp key 6 CCNA address 12.0.0.2  
+access-list 2002 permit gre host 12.1.0.2 host 12.0.0.2
+crypto ipsec transform-set SECRET ah-sha512-hmac esp-aes 256 esp-sha512-hmac
+ mode tunnel
+crypto map GRE-IPSEC 10 ipsec-isakmp
+ set peer 12.0.0.2
+ set transform-set SECRET
+ match address 2002
+int s1/0
+ crypto map GRE-IPSEC

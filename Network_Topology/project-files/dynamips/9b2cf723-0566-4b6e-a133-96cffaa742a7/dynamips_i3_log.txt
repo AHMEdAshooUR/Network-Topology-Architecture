@@ -1,0 +1,56 @@
+Feb 04 15:39:16.979 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 04 15:39:16.980 HYPERVISOR: Started on IP = localhost, TCP port = 58819.
+Feb 04 15:39:17.478 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 04 15:39:17.481 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips 
+Feb 04 15:39:17.481 GENERAL: working_dir=C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips
+Feb 04 15:39:17.482 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\9b2cf723-0566-4b6e-a133-96cffaa742a7 
+Feb 04 15:39:17.483 GENERAL: working_dir=C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\9b2cf723-0566-4b6e-a133-96cffaa742a7
+Feb 04 15:39:17.483 HYPERVISOR: exec_cmd: vm create DHCP 3 c7200 
+Feb 04 15:39:17.487 VM: VM DHCP created.
+Feb 04 15:39:17.490 HYPERVISOR: exec_cmd: vm set_con_tcp_port DHCP 5043 
+Feb 04 15:39:17.490 HYPERVISOR: exec_cmd: c7200 get_mac_addr DHCP 
+Feb 04 15:39:17.491 HYPERVISOR: exec_cmd: vm get_status DHCP 
+Feb 04 15:39:17.491 HYPERVISOR: exec_cmd: vm slot_add_binding DHCP 0 0 C7200-IO-FE 
+Feb 04 15:39:17.494 HYPERVISOR: exec_cmd: vm set_disk0 DHCP 0 
+Feb 04 15:39:17.496 HYPERVISOR: exec_cmd: vm set_exec_area DHCP 64 
+Feb 04 15:39:17.500 HYPERVISOR: exec_cmd: vm set_ios DHCP C:/Users/HD/GNS3/images/IOS/c7200-adventerprisek9-mz.152-4.S6.image 
+Feb 04 15:39:17.502 HYPERVISOR: exec_cmd: c7200 set_mac_addr DHCP ca03.1904.0000 
+Feb 04 15:39:17.504 HYPERVISOR: exec_cmd: vm set_nvram DHCP 512 
+Feb 04 15:39:17.505 HYPERVISOR: exec_cmd: vm set_ram DHCP 512 
+Feb 04 15:39:17.507 HYPERVISOR: exec_cmd: vm get_status DHCP 
+Feb 04 15:39:17.508 HYPERVISOR: exec_cmd: vm slot_remove_binding DHCP 0 0 
+Feb 04 15:39:17.509 HYPERVISOR: exec_cmd: vm get_status DHCP 
+Feb 04 15:39:17.511 HYPERVISOR: exec_cmd: vm slot_add_binding DHCP 0 0 C7200-IO-GE-E 
+Feb 04 15:39:17.512 HYPERVISOR: exec_cmd: vm get_status DHCP 
+Feb 04 15:39:17.513 HYPERVISOR: exec_cmd: vm slot_add_binding DHCP 1 0 PA-GE 
+Feb 04 15:39:24.790 HYPERVISOR: exec_cmd: nio create_udp udp-7b8cd335-a8d4-45fc-8be0-3440e093acd9 10031 127.0.0.1 10032 
+Feb 04 15:39:25.089 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DHCP 0 0 udp-7b8cd335-a8d4-45fc-8be0-3440e093acd9 
+Feb 04 15:39:25.089 HYPERVISOR: exec_cmd: vm get_status DHCP 
+Feb 04 15:39:40.781 HYPERVISOR: exec_cmd: vm create Ghost 0 c7200 
+Feb 04 15:39:40.783 VM: VM Ghost created.
+Feb 04 15:39:40.816 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/HD/GNS3/images/IOS/c7200-adventerprisek9-mz.152-4.S6.image 
+Feb 04 15:39:40.858 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Feb 04 15:39:40.859 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\c7200-adventerprisek9-mz.152-4.S6.image-512.ghost 
+Feb 04 15:39:40.860 HYPERVISOR: exec_cmd: vm set_ram Ghost 512 
+Feb 04 15:39:40.861 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Feb 04 15:39:40.861 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Feb 04 15:39:40.862 HYPERVISOR: exec_cmd: vm start Ghost 
+Feb 04 15:39:41.330 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Feb 04 15:39:41.330 HYPERVISOR: exec_cmd: vm stop Ghost 
+Feb 04 15:39:41.552 VM: VM Ghost shutdown.
+Feb 04 15:39:41.554 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Feb 04 15:39:41.556 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Feb 04 15:39:41.556 VM: VM Ghost destroyed.
+Feb 04 15:39:41.575 HYPERVISOR: exec_cmd: vm set_ghost_status DHCP 2 
+Feb 04 15:39:41.576 HYPERVISOR: exec_cmd: vm set_ghost_file DHCP C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\c7200-adventerprisek9-mz.152-4.S6.image-512.ghost 
+Feb 04 15:39:41.577 HYPERVISOR: exec_cmd: vm get_status DHCP 
+Feb 04 15:39:41.585 HYPERVISOR: exec_cmd: vm set_config DHCP configs\i3_startup-config.cfg configs\i3_private-config.cfg 
+Feb 04 15:39:41.585 HYPERVISOR: exec_cmd: vm start DHCP 
+Feb 04 15:40:11.940 HYPERVISOR: exec_cmd: vm extract_config DHCP 
+Feb 04 16:48:39.846 HYPERVISOR: exec_cmd: vm get_status DHCP 
+Feb 04 16:48:39.846 HYPERVISOR: exec_cmd: vm stop DHCP 
+Feb 04 16:48:39.973 VM: VM DHCP shutdown.
+Feb 04 16:48:39.973 HYPERVISOR: exec_cmd: vm extract_config DHCP 
+Feb 04 16:51:15.352 HYPERVISOR: Stopped.
+Feb 04 16:51:15.352 VM: VM DHCP destroyed.
+Feb 04 16:51:15.353 GENERAL: reset done.

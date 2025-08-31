@@ -1,0 +1,46 @@
+Feb 04 15:39:16.391 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 04 15:39:16.392 HYPERVISOR: Started on IP = localhost, TCP port = 58815.
+Feb 04 15:39:16.888 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 04 15:39:16.889 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips 
+Feb 04 15:39:16.889 GENERAL: working_dir=C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips
+Feb 04 15:39:16.889 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\d0b2ed17-06d0-4b2b-837a-0ec2817e1d9b 
+Feb 04 15:39:16.890 GENERAL: working_dir=C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\d0b2ed17-06d0-4b2b-837a-0ec2817e1d9b
+Feb 04 15:39:16.890 HYPERVISOR: exec_cmd: vm create N-2 2 c7200 
+Feb 04 15:39:16.892 VM: VM N-2 created.
+Feb 04 15:39:16.893 HYPERVISOR: exec_cmd: vm set_con_tcp_port N-2 5042 
+Feb 04 15:39:16.893 HYPERVISOR: exec_cmd: c7200 get_mac_addr N-2 
+Feb 04 15:39:16.894 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 15:39:16.894 HYPERVISOR: exec_cmd: vm slot_add_binding N-2 0 0 C7200-IO-FE 
+Feb 04 15:39:16.895 HYPERVISOR: exec_cmd: vm set_disk0 N-2 0 
+Feb 04 15:39:16.896 HYPERVISOR: exec_cmd: vm set_exec_area N-2 64 
+Feb 04 15:39:16.897 HYPERVISOR: exec_cmd: vm set_ios N-2 C:/Users/HD/GNS3/images/IOS/c7200-adventerprisek9-mz.152-4.S6.image 
+Feb 04 15:39:16.898 HYPERVISOR: exec_cmd: c7200 set_mac_addr N-2 ca02.2a98.0000 
+Feb 04 15:39:16.898 HYPERVISOR: exec_cmd: vm set_nvram N-2 512 
+Feb 04 15:39:16.899 HYPERVISOR: exec_cmd: vm set_ram N-2 512 
+Feb 04 15:39:16.900 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 15:39:16.900 HYPERVISOR: exec_cmd: vm slot_remove_binding N-2 0 0 
+Feb 04 15:39:16.901 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 15:39:16.901 HYPERVISOR: exec_cmd: vm slot_add_binding N-2 0 0 C7200-IO-GE-E 
+Feb 04 15:39:16.902 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 15:39:16.902 HYPERVISOR: exec_cmd: vm slot_add_binding N-2 1 0 PA-GE 
+Feb 04 15:39:16.903 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 15:39:16.903 HYPERVISOR: exec_cmd: vm slot_add_binding N-2 2 0 PA-4T+ 
+Feb 04 15:39:24.375 HYPERVISOR: exec_cmd: nio create_udp udp-c0078c28-27d5-454a-b083-d6b39ef7f851 10028 127.0.0.1 10029 
+Feb 04 15:39:24.658 HYPERVISOR: exec_cmd: vm slot_add_nio_binding N-2 2 0 udp-c0078c28-27d5-454a-b083-d6b39ef7f851 
+Feb 04 15:39:24.658 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 15:39:25.945 HYPERVISOR: exec_cmd: nio create_udp udp-825b563f-a47a-45d3-8091-dabf59bd8108 10037 127.0.0.1 10038 
+Feb 04 15:39:25.949 HYPERVISOR: exec_cmd: vm slot_add_nio_binding N-2 0 0 udp-825b563f-a47a-45d3-8091-dabf59bd8108 
+Feb 04 15:39:25.951 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 15:39:43.267 HYPERVISOR: exec_cmd: vm set_ghost_status N-2 2 
+Feb 04 15:39:43.268 HYPERVISOR: exec_cmd: vm set_ghost_file N-2 C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\c7200-adventerprisek9-mz.152-4.S6.image-512.ghost 
+Feb 04 15:39:43.270 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 15:39:43.285 HYPERVISOR: exec_cmd: vm set_config N-2 configs\i2_startup-config.cfg configs\i2_private-config.cfg 
+Feb 04 15:39:43.285 HYPERVISOR: exec_cmd: vm start N-2 
+Feb 04 15:40:13.654 HYPERVISOR: exec_cmd: vm extract_config N-2 
+Feb 04 16:48:39.767 HYPERVISOR: exec_cmd: vm get_status N-2 
+Feb 04 16:48:39.767 HYPERVISOR: exec_cmd: vm stop N-2 
+Feb 04 16:48:39.893 VM: VM N-2 shutdown.
+Feb 04 16:48:39.893 HYPERVISOR: exec_cmd: vm extract_config N-2 
+Feb 04 16:51:15.352 HYPERVISOR: Stopped.
+Feb 04 16:51:15.352 VM: VM N-2 destroyed.
+Feb 04 16:51:15.353 GENERAL: reset done.

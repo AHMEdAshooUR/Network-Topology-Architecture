@@ -1,0 +1,47 @@
+Feb 04 15:39:17.633 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 04 15:39:17.634 HYPERVISOR: Started on IP = localhost, TCP port = 58822.
+Feb 04 15:39:18.127 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 04 15:39:18.128 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips 
+Feb 04 15:39:18.128 GENERAL: working_dir=C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips
+Feb 04 15:39:18.128 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\49ba08f7-62a1-46c0-82d4-1d54c76bb255 
+Feb 04 15:39:18.129 GENERAL: working_dir=C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\49ba08f7-62a1-46c0-82d4-1d54c76bb255
+Feb 04 15:39:18.129 HYPERVISOR: exec_cmd: vm create ISP 4 c7200 
+Feb 04 15:39:18.131 VM: VM ISP created.
+Feb 04 15:39:18.132 HYPERVISOR: exec_cmd: vm set_con_tcp_port ISP 5044 
+Feb 04 15:39:18.132 HYPERVISOR: exec_cmd: c7200 get_mac_addr ISP 
+Feb 04 15:39:18.132 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 15:39:18.132 HYPERVISOR: exec_cmd: vm slot_add_binding ISP 0 0 C7200-IO-FE 
+Feb 04 15:39:18.134 HYPERVISOR: exec_cmd: vm set_disk0 ISP 0 
+Feb 04 15:39:18.135 HYPERVISOR: exec_cmd: vm set_exec_area ISP 64 
+Feb 04 15:39:18.136 HYPERVISOR: exec_cmd: vm set_ios ISP C:/Users/HD/GNS3/images/IOS/c7200-adventerprisek9-mz.152-4.S6.image 
+Feb 04 15:39:18.137 HYPERVISOR: exec_cmd: c7200 set_mac_addr ISP ca04.1a90.0000 
+Feb 04 15:39:18.138 HYPERVISOR: exec_cmd: vm set_nvram ISP 512 
+Feb 04 15:39:18.139 HYPERVISOR: exec_cmd: vm set_ram ISP 512 
+Feb 04 15:39:18.139 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 15:39:18.140 HYPERVISOR: exec_cmd: vm slot_remove_binding ISP 0 0 
+Feb 04 15:39:18.140 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 15:39:18.141 HYPERVISOR: exec_cmd: vm slot_add_binding ISP 0 0 C7200-IO-GE-E 
+Feb 04 15:39:18.141 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 15:39:18.142 HYPERVISOR: exec_cmd: vm slot_add_binding ISP 1 0 PA-8T 
+Feb 04 15:39:24.008 HYPERVISOR: exec_cmd: nio create_udp udp-8896a2be-30c1-412d-bb23-7387a91bec0d 10022 127.0.0.1 10023 
+Feb 04 15:39:24.303 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP 1 0 udp-8896a2be-30c1-412d-bb23-7387a91bec0d 
+Feb 04 15:39:24.304 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 15:39:24.360 HYPERVISOR: exec_cmd: nio create_udp udp-bf05787c-98e9-4ab4-9b5c-8726bc01cf9e 10026 127.0.0.1 10027 
+Feb 04 15:39:24.366 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP 1 1 udp-bf05787c-98e9-4ab4-9b5c-8726bc01cf9e 
+Feb 04 15:39:24.367 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 15:39:26.291 HYPERVISOR: exec_cmd: nio create_udp udp-901ab32b-4fbf-4e7d-8cb9-f2b72f3bef5b 10041 127.0.0.1 10042 
+Feb 04 15:39:26.294 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP 0 0 udp-901ab32b-4fbf-4e7d-8cb9-f2b72f3bef5b 
+Feb 04 15:39:26.294 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 15:39:41.992 HYPERVISOR: exec_cmd: vm set_ghost_status ISP 2 
+Feb 04 15:39:41.993 HYPERVISOR: exec_cmd: vm set_ghost_file ISP C:\Users\HD\Desktop\Project_CCNA\project-files\dynamips\c7200-adventerprisek9-mz.152-4.S6.image-512.ghost 
+Feb 04 15:39:41.994 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 15:39:41.999 HYPERVISOR: exec_cmd: vm set_config ISP configs\i4_startup-config.cfg configs\i4_private-config.cfg 
+Feb 04 15:39:42.000 HYPERVISOR: exec_cmd: vm start ISP 
+Feb 04 15:40:12.310 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Feb 04 16:48:39.909 HYPERVISOR: exec_cmd: vm get_status ISP 
+Feb 04 16:48:39.909 HYPERVISOR: exec_cmd: vm stop ISP 
+Feb 04 16:48:40.068 VM: VM ISP shutdown.
+Feb 04 16:48:40.068 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Feb 04 16:51:15.352 HYPERVISOR: Stopped.
+Feb 04 16:51:15.352 VM: VM ISP destroyed.
+Feb 04 16:51:15.353 GENERAL: reset done.

@@ -1,0 +1,278 @@
+! "Access Area"
+
+vlan 1000
+name Native
+ex
+vtp mode client
+vtp dom cisco.com
+vtp ver 3
+VTP PASS 123
+vtp pruning
+
+
+spanning-tree mode rapid-pvst 
+ip dhcp snooping
+ip dhcp snooping vlan 1000
+ip arp insp vlan 1000
+!"TRUNL PORT" 
+int range e0/0-1
+spanning-tree link-type point-to-point
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk native vlan 1000
+switchport trunk allow vlan all
+ip dhcp snooping trust
+ip arp inspection trust
+
+
+
+
+
+int range e0/2-3,e1/0-3,e2/0-3,e3/0-3
+switchport port-security maximum 1
+switchport port-security mac-address sticky 
+switchport port-security violation shutdown
+spanning-tree bpduguard enable
+spanning-tree portfast
+ip dhcp snooping limit rate 3
+ip arp inspection limit ra 3
+
+
+exit
+
+
+int range e0/2-3
+switchport mode access 
+switch access vlan 999
+shut
+
+int range e1/0-3
+switchport mode access 
+switch access vlan 10
+switchport port-security maximum 1
+switchport port-security mac-address sticky 
+switchport port-security violation shutdown
+spanning-tree bpduguard enable
+spanning-tree portfast
+ip dhcp snooping limit rate 3
+ip arp inspection limit ra 3
+
+int range e2/0-3
+switchport mode access 
+switch access vlan 20
+
+int range e3/0-3
+switchport mode access 
+switch access vlan 30
+
+
+int vlan 50 
+ip add 192.168.50.3 255.255.255.240
+no shut 
+
+
+line con 0
+login local
+no domain-lookup
+exec-timeout 0 0
+logging synchronous
+
+line vty 0 4
+login local
+no domain-lookup
+exec-timeout 0 0
+logging synchronous
+
+
+ hostname SW-6
+ username SW-6 privilege 15 pass 123
+ banner motd / >>>>>> SW-6 pass 123 <<<<<<</
+
+ip domain-name cisco.com
+crypto key gen rsa
+1024
+
+
+
+
+
+
+
+
+! " ACCESS AREA  " 
+
+
+! root1/2-config
+
+enable 
+config t
+ip dhcp snooping
+
+ip routing
+vlan 1000
+name Native
+vlan 10
+name IT
+vlan 20
+name Salse
+vlan 30
+name HR
+vlan 50
+name Manage
+vlan 999
+name parking
+
+vtp mode server
+vtp dom cisco.com
+vtp ver 3
+VTP PASS 123
+vtp pruning
+
+
+ip dhcp snooping
+ip dhcp snooping vlan 1000
+ip arp insp vlan 1000
+
+
+!"TRUNL PORT" 
+!e1/0-3,e2/0-3,e3/0-1,e2/0-3
+int range e0/0-3,e1/0-1
+spanning-tree link-type point-to-point
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk native vlan 1000
+switchport trunk allow vlan all
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+! "create EtherChannel" 1 Core->root-1
+int range e0/0-2
+int range e2/2-3,e3/0
+spanning-tree link-type point-to-point
+channel-group 30 mode acti
+exi
+
+! "create EtherChannel" 2 Core->root-1
+
+int range e0/3,e1/3,e2/3
+spanning-tree link-type point-to-point
+
+channel-group 40 mode acti
+exi
+
+
+int po4
+spanning-tree link-type point-to-point
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk native vlan 1000
+switchport trunk allow vlan all
+ip dhcp snooping trust
+ip arp inspection trust
+no shut
+exit
+
+
+int range e3/0-6
+no switchport mode access
+no switchport access vlan 999
+spanning-tree link-type point-to-point
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk native vlan 1000
+switchport trunk allow vlan all
+ip dhcp snooping trust
+ip arp inspection trust
+ no shut
+
+
+
+!" STP " root
+spanning-tree mode rapid-pvst 
+spanning-tree vlan 1,1000 root primary
+
+line con 0
+login local
+no domain-lookup
+exec-timeout 0 0
+logging synchronous
+
+
+line vty 0 4
+login local
+no domain-lookup
+exec-timeout 0 0
+logging synchronous
+trans input ssh
+exit
+
+ip domain-name cisco.com
+
+username Root-1 privilege 15 pass 123
+crypto key gen rsa
+1024
+
+hostname CEO-1
+
+banner motd / >>>>>> CEO-1 pass 123 <<<<<<</
+
+
+
+
+
+
+
+ospf
+ip ospf authentication message-digest
+ip ospf message-digest-key 75 md5 AAss1234
+network 192.168.0.0 0.0.31.255 area 10
+no  network 192.168.10.0 0.0.0.255 area 10
+no  network 192.168.20.0 0.0.0.255 area 10
+no  network 192.168.30.0 0.0.0.255 area 10
+
+
+
+
+hsrp 
+track 100 interface s2/0 line-protocol
+track 200 ip route 0.0.0.0 0.0.0.0 reachability
+
+
+
+clock set 04:21:00 5 FEB 2025
+conf
+
+!LOCALE SIGNIFICANT
+
+key chain TSEC
+key 1
+key-string CCNA 
+accept-Lifetime 00:00:00 1 FeB 2025 00:00:00 1 Aug 2025 
+send-Lifetime 00:00:00 2 FeB 2025 00:00:00 1 Aug 2025 
+key 2
+key-string CCNP 
+accept-Lifetime 00:00:00 1 AUG 2025 infinite 
+send-Lifetime 00:00:00 1 Aug 2025 infinite
+
+
+
+standby 10 authentication md5 key-chain TSEC
+
+
+no standby 10 track 100 decrement 20
+no standby 10 track 200 decrement 20
+
+ip access-list extended SEC-HTTPS
+deny tcp any any eq 80
+permit tcp any any eq 443
+permit ip any any
+
+
+
+
+
+
+
+
+
